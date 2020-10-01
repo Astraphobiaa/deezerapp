@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.track.TrackActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tbTrack"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvToolbarTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Deezer'a Hoş Geldiniz"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTrack"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/vwMp"
+        app:layout_constraintTop_toBottomOf="@id/tbTrack"
+        app:spanCount="1"
+        tools:listitem="@layout/row_track" />
+
+    <View
+        android:id="@+id/vwMp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/black"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:id="@+id/ivPlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/vwMp"
+        app:layout_constraintEnd_toStartOf="@+id/ivNext"
+        app:layout_constraintStart_toEndOf="@+id/ivPrevious"
+        app:layout_constraintTop_toTopOf="@+id/vwMp"
+        app:srcCompat="@drawable/playbutton"
+        app:tint="@android:color/white" />
+
+    <ImageView
+        android:id="@+id/ivNext"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/vwMp"
+        app:layout_constraintEnd_toStartOf="@+id/ivVolume"
+        app:layout_constraintStart_toEndOf="@+id/ivPlay"
+        app:layout_constraintTop_toTopOf="@+id/vwMp"
+        app:srcCompat="@drawable/nextbutton"
+        app:tint="@android:color/white" />
+
+    <ImageView
+        android:id="@+id/ivPrevious"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/vwMp"
+        app:layout_constraintEnd_toStartOf="@+id/ivPlay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vwMp"
+        app:srcCompat="@drawable/previousbutton"
+        app:tint="@android:color/white" />
+
+    <ImageView
+        android:id="@+id/ivVolume"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/vwMp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivNext"
+        app:layout_constraintTop_toTopOf="@+id/vwMp"
+        app:srcCompat="@drawable/volumebutton"
+        app:tint="@android:color/white" />
+
+    <FrameLayout
+        android:id="@+id/flSeekbar"
+        android:layout_width="32dp"
+        android:layout_height="180dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/ivVolume"
+        app:layout_constraintEnd_toEndOf="@+id/ivVolume"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="@+id/ivVolume">
+
+        <SeekBar
+            android:id="@+id/sbVolume"
+            android:layout_width="180dp"
+            android:layout_height="32dp"
+            android:max="100"
+            android:min="0"
+            android:progress="50"
+            android:rotation="270"
+            android:layout_gravity="center"
+            android:thumbTint="@color/black" />
+
+    </FrameLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
